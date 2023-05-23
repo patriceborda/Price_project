@@ -1,0 +1,627 @@
+\documentclass[12pt]{article} 
+\usepackage{a4wide,color,graphics,palatino,fancyhdr} 
+\usepackage{amsmath}
+\usepackage[frenchb]{babel}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{setspace}
+%\usepackage{enumitem}
+%\setlist[description]{style=nextline}
+\usepackage{layout}
+\usepackage{threeparttable}
+\usepackage{appendix}
+\usepackage{subcaption}
+\usepackage{natbib}
+\usepackage[bottom=3cm,top=3cm,left=3cm,right=3cm] {geometry}
+%\usepackage{csquotes}% pour la gestion des guillemets français.
+%\usepackage[ backend=biber, sorting=nyt, % trier par nom, année, titre
+     %citestyle=authoryear, bibstyle=alphabetic]{biblatex}
+\usepackage{hyperref}
+    \hypersetup{
+     colorlinks   = true,
+     linkcolor    = blue,
+     citecolor    = blue
+}
+
+
+%\onehalfspacing 
+%\setlength{\topmargin}{-1.0in}\setlength{\topskip}{0.3in} 
+ %between header and text
+ %\setlength{\marginparsep}{0.01in}
+ %\setlength{\marginparpush}{5pt}
+ %\setlength{\headheight}{31pt}
+ %\setlength{\headsep}{15pt}
+ %\setlength{\textheight}{9.53in} 
+ %height of main text
+ %\setlength{\textwidth}{5.93in}    
+ % width of text
+ %\setlength{\oddsidemargin}{0.12in}
+ %  odd page left margin
+ %\setlength{\evensidemargin}{0.10in} 
+ %   even page left margin
+ %\usepackage[francais]{babel}
+
+\catcode`\â= \active \def â{\^a}
+\catcode`\ê= \active \def ê{\^e}
+\catcode`\ô= \active \def ô{\^o}
+\catcode`\û= \active \def û{\^u}
+\catcode`\î= \active \def î{{\^\i}}
+\catcode`\é= \active \def é{\'e}
+\catcode`\è= \active \def è{\`e}
+\catcode`\à= \active \def à{\`a}
+\catcode`\ù= \active \def ù{\`u}
+\catcode`\ç= \active \def ç{\c {c}}
+\catcode`\ï= \active \def ï{{\"\i}}
+
+
+% TEX 8(ibmpc) bits
+%**start of header
+ \scrollmode
+% \documentstyle[A41,11pt,bezier]{article}
+ \title{Les Indicateurs d'Ecart des Prix Dans les Régions d'Outre-Mer}
+
+ \tolerance 200  % Standard TeX tolerance; could be set to 1000
+ \author{Patrice Borda  \\ \footnotesize{CREDDI } \& UA, \and Zinaïda Salibekyan  \\ \footnotesize{INSEE} \and Maurice  Bilionière  \\ \footnotesize{INSEE \& CREDDI}}
+ %\date{}
+
+\AtBeginDocument{
+\renewcommand{\bibname}{Références}
+}
+
+
+\begin{document}
+
+\renewcommand{\tablename}{Tableau}
+\renewcommand{\figurename}{Graphique}
+%\onehalfspacing
+
+\renewcommand{\appendixpagename}{Annexes}
+\renewcommand{\appendixtocname}{Annexes}
+
+
+
+\baselineskip=15true pt
+\newtheorem{theo}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{proper}{Property}
+\newtheorem{cor}{Corollaire}
+\newtheorem{rem}{Remark}
+\newtheorem{defi}{Definition}
+\newtheorem{lem}{Lemma}
+
+  \maketitle
+%\layout
+%version envoy‚e au Journal of Population Economics pour publication
+\thispagestyle{empty}
+
+
+%\scriptsize{* Université des Antilles‚ CREDDI, Campus de Fouillole, BP 251, Pointe à Pitre, Guadeloupe, France}. \\
+
+%We are particularly indebted to an anonymous referee for her/his
+%comments and suggestions to drastically simplify some proofs. 
+
+%We thank Ph. Michel, B. Crettez, B. Wigniolle, D. Pennequin, G.
+%Carlier, P. Belan, J-P. Vidal and D. Leonard for their fruitful
+%comments, all participants of the OLG seminar of Paris I, and also
+%those of the CREST seminar
+
+
+%\begin{doublespace}
+ \begin{center}
+  {\bf Résumé}
+ \end{center}
+L'ampleur des mouvements des prix constatés dans les DOM depuis plusieurs années et les contestations sociales, liées à la vie chère,  constituent un champs de recherche privilégié pour l'analyse de l'écart des prix entre la France métropolitaine et les régions d'Outre-Mer.  
+ Dans cette note,  nous présentons, en premier lieu, les déterminants théoriques de l'écart des prix. Nous discuterons en second lieu, de la pertinence des indicateurs d'écart utilisés. 
+%Due to the presence of differences in degrees of altruism across countries lead to
+%bilateral migration flows. Both countries are populated and this equilibrium is not
+%a Pareto improvement.
+%This paper surveys two different approaches on international migration: the Galor's (1986) one, where individuals differ in time preference and for which the Golden Rule plays a role on the direction of migration flows, and the Gaumont-Mesnard's (2000) one, where they differ in altruism and for which the Golden Rule does not play any role on the direction of  migration flows. Building a unique three period overlapping generations model which mixes both approaches, we show that bilateral migration flows are independent of the Golden Rule. Both countries are populated in post-migration equilibrium. International migration is not Pareto improving.
+%Due to the presence of differences in degrees of altruism across countries lead to
+%bilateral migration flows. Both countries are populated and this equilibrium is not
+%a Pareto improvement.
+%Starting from the autarkic steady-state
+%equilibrium, restrictions on labour migration are relaxed. In
+%temporary post-migration equilibrium factor prices are equal across
+%countries. We then characterize the unique stable steady-state
+%equilibrium: both countries are populated and this equilibrium is not
+%a Pareto improvement. Some individuals prefer to live in autarky,
+%others in an integrated world economy. 
+
+
+\vspace{3.5cm}
+
+JEL Classification: 
+
+\vspace{0.5cm}
+
+{\bf Key Words}: Cluster, Inflation, Local projection, données de panel
+
+
+\vfill\eject
+\setcounter{page}{1}
+
+
+\section{Revue de littérature}
+
+Un nombre conséquent de travaux de recherche a été effectué afin d'analyser la convergence des prix et de l'inflation à la fois au niveau régional ou au niveau national. Cette problématique a beaucoup retenu l'attention au niveau européen ou américain (au niveau régional). Sans prétendre à l'exhaustivité, nous proposons une revue de la littérature qui  recouvre un large champ des travaux récents effectués en Europe mais aussi dans la Caraïbe. Les travaux empiriques y sont fragmentés et diffèrent à bien des égards. \\  Premièrement, le périmètre géographique retenu pour l'Europe est variable. Il peut aussi bien s'agir de l'union européenne, que de la zone euro avec ou sans les nouveaux états membres. Deuxièmement, nombreuses sont les approches méthodologiques. Les analyses en séries temporelles ou en données de  panel étant les plus répandues. Troisièmement, les variables retenues dans les travaux divergent. Il peut s'agir du niveau de l'indice général des  prix, de l'indice des produits alimentaires,  de l'écart d'inflation ou du niveau des taux d'inflation absolue ou relative, ou un indicateur de volatilité. Quatrièmement, il existe une variété de configuration de la période de référence des données qui, si elle n'est pas considérée dans son ensemble, sera découpée en sous-périodes faisant référence à la crise financière de 2008, au passage à l'euro et un épisode de catastrophes naturelles.\\
+Dans cette vaste littérature, les conclusions sont plutôt contrastées. Alors que certaines études concluent sur une convergence des prix ou de l'inflation en Europe, d'autres mettent en évidence une divergence ou des ambiguïtés.
+\\
+
+Ayant recours à des données mensuelles sur le taux d'inflation pour la période 1972-1999, \cite{holmes2002} analyse la convergence de l'inflation à long terme pour six économies majeures de l'Union européenne. A partir de tests de  stationnarité et de cointégration sur  données de panel (tests ADF, IPS et  Pedroni), il met en évidence une plus forte convergence avant 1990. L'introduction du mécanisme de taux de change européen en 1979 pourrait être responsable de cette évolution. Des résultats quelques peu similaires sont partagés par les travaux de \cite{Rogers2002}. Après avoir construits des indices de prix à partir des données annuelles de 165 biens et services de 18 pays européens sur la période 1990-1999, ils trouvent une convergence des niveaux de prix dans la première moitié des années 90 plus forte que dans la seconde moitié. L'étude de \cite{Duarte} a pour objectif de documenter l'évolution de l'inflation dans la zone euro avant et après l'introduction de l'euro. Ainsi, il  utilise la variation sur douze mois de l'IPC (l'Indice des Prix à la Consommation) pour 11 pays ayant adoptés l'euro en 1999. L'inflation Allemande est retenue comme variable référence afin de mesurer la dispersion et l'écart d'inflation.  Il en ressort que l'introduction du mécanisme de taux de change européen en 1979 a été néfaste pour ces économies puisque la dispersion de l'inflation dans la zone euro a été plus élevée que celle observée aux Etats-Unis. De plus, la variabilité de l'écart d'inflation par rapport à l'inflation allemande a eu tendance à augmenter pour la plupart des pays depuis son adoption. Dans le prolongement de l'analyse précédente, \citep{engel2004european} soutiennent qu'il n'y a pas eu de convergence depuis l'introduction de l'euro en 1999.  Toutefois, ils affirment qu'une réduction substantielle des écarts de prix s'est produite au moment de la mise en place du marché unique. A l'image d'autres travaux, leur étude confirme une plus forte réduction de la dispersion des prix pour les biens échangeables que pour les prix des produits non échangeables. Les travaux de \cite{sosvilla2004price} en sont un bon exemple. Ces auteurs ont examiné les effets de l'intégration du marché européen sur la convergence des prix dans 12 pays de la zone euro. En retenant les données mensuelles de l'IPC entre 1975 et 1995 sur des données de panel, ils concluent  à un processus de convergence pour le prix des  biens échangeables contrastant  avec une absence de convergence pour les prix des biens non échangeables. Des conclusions similaires ont été avancées par d'autres études \cite{de2005nominal} et \cite{allington2018one}, \cite{kutan2005real}, en étudiant la convergence de 10 nouveaux membres de l'UE, montrent qu'il existe une convergence stochastique pour ces nouveaux membres. Les auteurs utilisent des tests de stationnarité sur données de panel sur les indices des prix de la production, des prix à la consommation, la masse monétaire et les taux d'intérêt réels et nominaux pour la période de 1993 à 2003. Gunter et al. (2006) étudient la dynamique de l'inflation pour différentes régions de pays internes et externes à la zone euro. Ils utilisent une large base de données régionales dont les IPC mensuels pour 70 régions entre 1995 et 2004. Ils développent un modèle où l'inflation régionale est expliquée par des facteurs communs à la zone euro, des facteurs spécifiques à un pays et une composante régionale idiosyncratique. De cette étude, il en ressort que la composante commune joue un rôle prépondérant dans la convergence de l'inflation régionale. L'introduction de l'euro en 1999 a un impact très limité sur la dynamique du taux d'inflation régional. \\
+
+Une étude relativement originale a été réalisée pour la France, au niveau régional, par \cite{leclair2019scanner}. Ils analysent  les écarts de niveau de prix entre les régions et les villes sur données micro-économiques. Leur étude est basée sur les données des scanners de supermarchés contenant à la fois des informations sur les prix et les quantités vendues. Les données ont été obtenues auprès de 1 833 magasins en avril 2013. Les magasins sont implantés dans 1 330 communes de 707 aires urbaines de la France métropolitaine. Leur objectif est ainsi de calculer des indices mesurant les écarts de niveaux de prix à la consommation, en se concentrant plus particulièrement sur les produits alimentaires vendus dans les supermarchés. A partir de leur modèle économétrique intégrant les codes-barres et la localisation géographique d'origine des produits considérés, ils observent une faible dispersion des niveaux de prix entre les régions et grandes agglomérations françaises, les prix étant plus élevés en région parisienne et en Corse.
+ Sur plus de 1500 magasins de la grande distribution,  \cite{Beradi2017} montrent que ce sont la composante spatiale permanente qui contribuent le plus à la dispersion des prix tandis que les conditions locales de la demande ou de la concurrence  y contribuent beaucoup moins. \\
+\cite{parker2018impact} étudie l'effet des catastrophes naturelles sur l'inflation (variation de l'IPC) sur les économies développées et en développement sur données panel. L'impact est négligeable pour les économies avancées. En revanche, pour les économies en développement, il tend à être persistant. Des différences subsistent selon la nature des catastrophes, en particulier si l'on considère les sous-indices de l'inflation. Alors que les tempêtes et les inondations augmentent temporairement le prix des denrées alimentaires à court terme,  les tremblements de terre, réduisent l'inflation hors alimentation, logement et énergie.
+\\ 
+Dans la zone caraïbe,  un certain nombre d'études a étudié la persistance de l'inflation (\cite{Payne2008} ; \cite{Boyd} et \cite{pentecost2010demand}) mais très peu le phénomène de convergence des niveaux des prix ou de l'inflation. Parmi ces rares études, celle de \cite{duttagupta2008price} examine l'influence de l'accord de change de l'Union Monétaire des Caraïbes Orientales (UMCO) sur la dynamique des prix dans les six pays membres de cette union en comparaison des prix aux Etats-Unis. Leur échantillon de données comprend l'IPC trimestriels des six pays de l'UMCO entre 1990 et 2006. A l'aide de tests stationnarité standards et de tests de cointégration, ils établissent que la stabilité des prix aux Etats-Unis contribue à la stabilité des prix au sein de l'UMCO sans qu'il y ait pour autant une convergence vers les prix américains. De même que les différences d'inflation sont persistantes entre les pays de l'UMCO à cause des différentes politiques macroéconomiques et des caractéristiques structurelles. \\  \cite{cuestas2011inflation} et \cite{cuestas2013convergence}, s'intéressent aux conditions nécessaires à la création d'une union moné-taire dans la Caraïbe. Ainsi, ils analysent les taux d'inflation trimestriels de douze pays de la zone entre 1981 et 2009 en utilisant plusieurs types de tests de racine unitaire et le test de club de convergence de \cite{Phillips}. Les résultats montrent l'existence d'un club de convergence des taux d'inflation au sein de la zone.  
+\\ \\
+A notre connaissance, peu d'étude  sur la problématique de la convergence, de la dispersion des prix ou de l'inflation n'a pu être recensée pour les régions d'Outre-Mer. \cite{Borda1999}, à l'aide d'un modèle Var cointégré, sur données mensuelles agrégées pour la Guadeloupe, ont montré une convergence en longue période du taux d'inflation domestique vers celui de la France métropolitaine. Nous étendons l'étude empirique en termes comparatifs sur les qutres régions d'Outre-Mer que sont la Martinique, la Guadeloupe, la Réunion et la Guyane.
+
+\section{Un schéma simple}
+Bien que l'objectif de cette  note est de fournir les déterminants empiriques de l'écart des prix entre la France métropolitaine et les régions d'Outre-Mer, un cadre thèorique semble nécessaire afin de fournir les fondements théoriques du différentiel de prix. 
+
+\subsection{Le cadre d'analyse}
+Afin d'étudier les déterminants des prix, il est commode de commencer par la relation suivante :
+\begin{eqnarray}
+\Delta p_{i,t}=\alpha \Delta p_{f,t}+(1-\alpha) \Delta p_{v,i,t} \ \ \ \ \  \alpha < 1  \ \ \ \ \  \label{eq1}
+\end{eqnarray}
+
+
+\noindent  avec respectivement,  $\Delta p_{i,t},$, $ \Delta p_{f,t}$,  $ \Delta p_{i,v,t}$, la variation des prix de la région ${i}$ à la période ${t}$,   ${i\in\left\{gua, reu, guy, mar\right\}}$ , la variation du prix des produits importés venant de la France métropolitaine à la période ${t}$  et la variation du prix de la valeur ajoutée à la période ${t}$. $\alpha$ pourrait être interprété comme la part de biens importés dans le panier de consommation des ménages. Le principe est que la variation du prix domestique de la région $i$ à la période $t$, est fonction de la variation du prix des produits importés de la France métropolitaine  et de la variation du prix de la valeur ajoutée de la région $i$ à la période $t$.\\  La relation (\ref{eq2}) décrit la formation des salaires nominaux dans la région $i$.
+\begin{eqnarray}
+\Delta w_{i,t}=\beta\Delta p_{i,t}+(1-\beta) \Delta p_{i,t-1} -\gamma u_{i,t} \ \ \ \ \ \beta < 1, \ \  \ \gamma > 0  \ \ \ \ \  \label{eq2}
+\end{eqnarray}
+\noindent  avec $\Delta w_{i,t}$ la variation du salaire nominal de la région $i$. $u_{i,t}$  est le taux de chômage de la région $i$. $\beta$  et $\gamma$ sont respectivement les coefficients d'indexation (ou de rigidité nominale) et  de rigidités réelles. Celles-ci sont d'autant plus élevées que $\beta$ est proche de l'unité. La relation (\ref{eq2})  peut être assimilée à une relation de Phillips standard, dans laquelle le taux de chômage affecte négativement la variation des salaires nominaux. La variation du prix de la valeur ajoutée (relation (\ref{eq3}))  est un processus à correction d'erreur entre le prix désiré $p_{v,i,t}^e$ et le prix effectif de la valeur ajoutée de la région $i$ à la période passée :
+\begin{eqnarray}
+\Delta p_{v,i,t}=\lambda\left(p_{v,i,t}^{e}-p_{v,i,t-1}\right) \ \ \ \ \ \lambda >0,   \ \ \ \ \  \label{eq3}
+\end{eqnarray}
+
+  \noindent $\lambda$ est un coefficient de correction des erreurs de prévisions. En concurrence imparfaite\footnote{En Outre-Mer, la concurrence sur le marché des biens et services  s'apparenterait plutôt à une concurrence monopolistique caractérisée par un modèle d'intégration verticale.}, le prix de la valeur ajoutée est fixé en fonction des taux de marge effectif et désiré des entreprises notés respectivement $\mu_i$ et $\mu_i^e$ :
+	\begin{eqnarray}
+ p_{v,i,t}=\mu_i +w_{i,t}+\ell_{i,t} -y_{i,t}  \ \ \ \ \ \mu_i >0,   \ \ \ \ \  \label{eq4} 
+ \end{eqnarray}
+	\begin{eqnarray}
+p_{v,i,t}^e=\mu_i^e +w_{i,t}+\ell _{i,t}-y_{i,t}  \ \ \ \ \ \mu_i^e >0,   \ \ \ \ \  \label{eq5}
+ \end{eqnarray}
+\noindent avec $y_{i,t}$,  $\ell_{i,t}$ et $w_{i,t}$ sont respectivement, la production, l'emploi et le salaire nominal de la région $i$. En situation de concurrence parfaite, $\mu_i=\mu_i^e=0$. Une interprétation naturelle des relations précédentes est que les entreprises fixent leur prix en fonction de leur pouvoir de marché caractérisé par le paramètre $\mu_i$.	 
+
+\subsection{Variation et écart des prix}
+Des relations (\ref{eq3}) , (\ref{eq4}) et (\ref{eq5}) , on déduit que la variation du prix de la valeur ajoutée depend positivement du taux de variation du coût salariale et de la situation financière des entreprises : 
+\begin{eqnarray}
+\Delta p_{v,i,t}=\lambda\left((\Delta w_{i,t}-\Delta q_{i,t})+(\mu_i^e-\mu_i)\right)    \ \ \ \ \  \label{eq6}
+\end{eqnarray}
+
+\noindent  $q_{i,t}=y_{i,t}-\ell_{i,t}$ est la productivité du travail de la région $i$ à la période $t$. Remplaçons  la relation (\ref{eq2}) dans la relation (\ref{eq6}), puis en remplacont la relation obtenue dans la relation (\ref{eq1}), nous obtenons les déterminants du taux de variation du prix de la région $i$ :  
+\begin{eqnarray}
+\Delta p_{i,t}=a_0\Delta p_{f,t}+a_1\Delta p_{i,t-1}  +a_2(\mu_i^e-\mu_i)-a_3u_{i,t}-a_4\Delta q_{i,t}  \ \ \ \ \  \label{eq7}
+\end{eqnarray}
+avec $a_0=\frac{\alpha}{1-\lambda\beta(1-\alpha)}$, $a_1=\frac{\lambda(1-\alpha)(1-\beta)}{1-\lambda\beta(1-\alpha)}$, $a_2=\frac{\lambda(1-\alpha)}{1-\lambda\beta(1-\alpha)}$, $a_3=\frac{\lambda\gamma}{1-\lambda\beta(1-\alpha)}$, $a_4=\frac{\lambda(1-\alpha)}{1-\lambda\beta(1-\alpha)}$. 
+\\ \\
+\noindent Cette relation montre, en premier lieu que le taux de chômage, la productivité du travail et l'indicateur de la concurrence sur le marché des biens et services constituent les déterminants du taux de variation de l'indice des prix régionaux. Une dégradation de la situation financière des entreprises ($\mu_i^e>\mu_i$) exigera, un suroît d'inflation afin de reconstituer leur marge. En second lieu,  le taux de variation du prix de la région $i$ est déterminé uniquement par celui de la France métropolitaine en longue période :
+\begin{eqnarray}
+\Delta p_{i,t}=\Delta p_{f,t}  \ \ \ \ \  \label{eq8}
+\end{eqnarray}
+La relation (\ref{eq7}), établit pour la dynamique du taux de variation des prix de la région $i$, nous permet de définir un indicateur d'écart des prix. Le long d'une trajectoire régulière, l'inflation est parfaitement anticipée par les ménages et le coefficient $a_0$ est égal à l'unité ($a_0=1$), la condition compatible avec une inflation régulière est alors :
+\begin{eqnarray}
+\beta=\frac{1}{\lambda}  \ \ \ \ \  \label{eq9}
+\end{eqnarray}
+\noindent Le degré de rigidité nominale  sur le marché du travail est  inversement proportionnel au coefficient de correction des erreurs de prévisions des entreprises. D'où l'on déduit l'écart de prix  (compte tenu de la relation(\ref{eq7})) :
+
+\begin{eqnarray}
+\begin{split}
+\underbrace{(p_{i,t}-p_{f,t})-(p_{i,t-1}-p_{f,t-1}) }_{\emph{variation de l'écart des prix}}=&-\underbrace{\frac{(1-\alpha)(1-\lambda)}{\alpha}\Delta p_{f,t-1}}_{\emph{composante agrégée}}+\frac{\lambda}{\alpha}\biggl[\underbrace{(1-\alpha)(\mu_i^e-\mu_i)}_{\emph{condition de la concurrence locale}}  \\  \\ 
+ &-\quad \underbrace{\gamma  u_{i,t}-(1-\alpha)\Delta q_{i,t}}_{\emph{ composante idiosyncratique}} \biggr] \ \ \label{eq10}   
+ \end{split}
+\end{eqnarray}
+
+%\left[\underbrace{(p_{i,t}-p_{f,t})-(p_{i,t-1}-p_{f,t-1}) }_{\emph{variation de l'écart des prix}}=&-\underbrace{\frac{(1-\alpha)(1-\lambda)}{\alpha}\Delta p_{f,t-1}}_{\emph{composante agrégée}}+\left[\underbrace{\frac{\lambda(1-\alpha)}{\alpha}(\mu_i^e-\mu_i)}_{\emph{condition de la concurrence}}  \\  \\ 
+ %&-\quad \underbrace{\frac{\lambda\gamma}{\alpha}  u_{i,t}-\frac{\lambda(1-\alpha)}{\alpha}\Delta q_{i,t}}_{\emph{ composante idiosyncratique}}  \ \
+
+\noindent Cette relation montre que l'on peut retrouver  une nouvelle relation entre la variation de l'écart de prix, le taux de variation des prix\footnote{ Nous avons tenu compte de la condition de long terme donnée par la relation  (\ref{eq8}). } de la France métropolitaine à la période $t-1$, le taux de marge des entreprises et le taux de chômage. De plus, le coefficient $\lambda$ serait un déterminant structurel dans l'explication de la dynamique de l'écart de prix. L'équation (\ref{eq10}) est comparable à un modèle à correction d'erreur où $\frac{\lambda}{\alpha}$ représente le coefficient à correction d'erreur et $(1-\alpha)(\mu_i^e-\mu_i)+\gamma u_{i,t}-(1-\alpha)\Delta q_{i,t}$, la cible de long terme (ou l'équilibre de long terme).
+ 
+	\section{Données et analyse statistique}
+Une des grandes problématiques dans les travaux de convergence des prix réside dans le choix des données. En raison du manque de données microéconomiques, ce sont des données agrégées qui sont utilisées (l'indice des prix à la consommation (IPC)).    
+Les données utilisées sont issue de l'Institut  National de la Statistique et des Etudes Economiques (Insee). Plus précisément, nous avons retenu des données mensuelles de l'indice des prix sur la période 2000:01 à 2020:12 (en base 2015) pour les régions d'Outre-Mer (Guadeloupe, Martinique, Guyane et La Réunion) et la France. Afin de conduire une analyse très fine, nos données sont au niveau le plus désagrégé selon la nomenclature COICOP (codé sur 2 caractères) en 18 grandes familles de produits. Nous avons retenu des données homogènes afin que notre analyse comparative soit la plus cohérente possible. \\  \\ Nous procédons dans un premier temps, à une comparaison des IPC de l'ensemble des produits entre les DOM. Dans un second temps, nous effectuerons une comparaison de l'écart vis-à-vis de la France sur la base d'un indicateur que nous définissons comme suit : $\hat{p}_{i,t}=p_{i,t}-p_{f,t}$. Comme l'ont montré\cite{Borda1999}, un  indicateur candidat à la robustesse (de l'écart de prix) supposerait la prise en compte des résidus de l'estimation d'une relation de cointégration entre l'IPC de la région $i$ et celui de la France Métropolitaine\footnote{L'indicateur d'écart reposerait alors sur les résidus de la relation de cointégration : $\hat{p}_{i,t}=p_{i,t}-a_{i,0}-a_1p_{f,t}.$ }.
+
+\subsection{\textbf{Statistiques descriptives}}
+Le graphique \ref{fig1} représente l'IPC global pour la Guadeloupe, la Martinique, la Guyane et la Réunion. L'observation fait ressortir un indice des prix sans cesse croissant pour les quatre DOM depuis l'an 2000. Deux grandes périodes peuvent être distinguées, la première de 2000 à 2009 et la seconde de 2010 à 2020, que l'on pourrait qualifiée de période post 2009. Entre 2000 et 2009, la croissance des IPC est très forte mais hétérogènes. Plus particulièrement, deux groupes peuvent être distingués. Alors que la Réunion et la Guyane suivent la même trajectoire avec des niveaux d'IPC élevés, la Guadeloupe et la Martinique connaissent des trajectoires identiques avec des niveaux d'IPC plus faibles. 
+
+%\newpage
+
+Plus que tous les autres DOM, les niveaux de prix en Guyane sont très volatiles puisque sur une courte période (de 2004 à 2008), l'IPC diminue au niveau de la Guadeloupe et de la Martinique avant de repartir à la hausse.
+\bigskip
+\begin{figure}[htbp]
+\begin{center}
+\caption{Indice des prix à la consommation}
+\includegraphics[scale=0.65]{c:/patrice/price_project/figures/figure_1.pdf} \leavevmode \\
+\label{fig1} 
+\end{center}
+\end{figure}
+
+L'année 2009, au cours de laquelle est visible un pic pour tous les DOM, ressemble à un point de rupture. Au cours de cette année, les IPC chutent avant de repartir à la hausse à partir de 2010. Cependant, l'augmentation est plus modérée et l'écart  des IPC s'amenuise. Depuis 2010, les quatre DOM ne sont plus répartis dans deux groupes mais n'en forme plus qu'un. Ce resserrement au fil des ans fait écho à un événement majeur ayant eu lieu en 2009. Une manifestation sociale aux revendications économiques et politiques sous forme de protestation contre la vie chère a éclaté simultanément dans les quatre  DOM \footnote{Symbolisé par le collectif LKP  en Guadeloupe, ce mouvement de 44 jours a été qualifié d'historique et d'inédit (Ganem, 2010). Il a été à l'origine de rencontres politiques de grande envergure tels que les Etats généraux de l'Outre-mer. Le mouvement  ayant paralysé les économies à cause de l'obligation de fermeture de la plupart des commerces, le PIB a chuté pour tous les région d'Outre-mer (en moyenne -6.3 \%).}. Puisque les revendications portaient notamment sur les prix, l'accord trouvé à la fin du mouvement social a entraîné une baisse marquée des IPC mais l'effet n'aura été que transitoire. En effet, dès la reprise économique de 2010, ils sont repartis à la hausse. Cependant, un nouveau phénomène est observable dans le rythme d'augmentation des IPC qui semble désormais suivre une augmentation harmonisée. Cette évolution pourrait s'interpréter comme la persistance de la crise sociale de 2009 dont l'une des mesures phares a été la mise en place d'un dispositif Bouclier Qualité-Prix  (BQP) dans les DOM. En réponse à la demande d'augmentation de pouvoir d'achat, ce dernier a pour objectif de limiter les prix de 1 500 produits de première nécessité.
+
+\bigskip
+\begin{table}[htbp]
+\centering
+\begin{threeparttable}
+%\begin{table}[htbp]
+\caption{Statistiques descriptives}
+\label{tab1}
+%\centering
+\begin{tabular}{rlrrrrrr}
+ 	 \toprule[0.3mm]
+  & $\hat{p}_{i,t}$   & $N$&$\sigma(\hat{p}_{i,t})$ & $Q_1$ & \textit{médiane} & $Q_3$ & $IQ$\tnote{1}\\ 
+  \midrule
+  & $\hat{p}_{gua,t}$ & $159$ & 0.010 & -0.015 & -0.007 & -0.001 & 0.014\\ 
+  & $\hat{p}_{mar,t}$ & $159$ & 0.009 & -0.012 & -0.005 & -0.001 & 0.011\\ 
+  & $\hat{p}_{reu,t}$ & $159$ & 0.002 & -0.003 & 0.002  & 0.007  & 0.010\\ 
+  &$\hat{p}_{guy,t}$  & $159$ & 0.002 & -0.007 & -0.001 & 0.003  & 0.010\\ 
+  \bottomrule[0.4mm]
+\end{tabular}
+%\end{table}
+\begin{tablenotes}
+		\footnotesize
+   		\item[1] Intervalle Interquartille.
+\end{tablenotes}
+%\end{table}
+\end{threeparttable}
+\end{table}
+
+Le tableau \ref{tab1} récapitule les statistiques de l'indicateur d'écart de l'IPC. On y observe une hétérogénéité des indicateurs de dispersion. L'opposition entre le groupe composé de la Réunion, la Guyane et celui de la Guadeloupe et de la Martinique semble nettement confirmée. En effet, l'effet l'écart interquartile de la Réunion est comparable à celui de la Guadeloupe alors ceux de la Martinique et la Guyane sont dissemblables. \\ Les graphiques de l'écart d'IPC par familles de produits sont également illustratifs.  D'après l'indicateur retenu, l'IPC par famille de produit\footnote{Le détail des familles de produits sont retranscrits dans l'annexe  \ref{A1}. } apparaît plus volatile que l'écart d'IPC total. Cela s'expliquerait par l'effet de composition imputable à la composition du panier de consommation des ménages (ce qui traduit une forte hétérogénéité entre les familles de produits) ou à la condition de la concurrence locale. Une telle constatation est aussi valable entre les régions. Alors que la Guadeloupe et la Martinique présentent sensiblement le même profil (graphiques \ref{fig2} et  \ref{fig3}), la Guyane et la Réunion affichent une certaine disparité vis-à-vis du groupe précédent (voir les graphiques  \ref{fig4} et  \ref{fig5}). Un autre fait notable est la forte volatilité de l'écart de prix pour la variable Habillement et chaussure quelque soient la région considérée. 
+Le tableau et les graphiques précédents ont montré une hétérogénéité remarquable à la fois au niveau inter  et intra régional en matière d'écart de prix vis-à-vis de la France Hexagonale.
+\medskip
+
+\begin{figure} [htbp]
+\begin{center}
+\caption{ Ecart de prix par famille de produits pour la Martinique}
+\includegraphics[scale=0.80]{c:/patrice/price_project/figures/figure_2_mart.pdf} \leavevmode \\
+\label{fig2} 
+\end{center}
+\end{figure}
+
+\begin{figure} [htbp]
+\begin{center}
+\caption{Ecart de prix par famille de produits pour la Guadeloupe}
+\includegraphics[scale=0.80]{c:/patrice/price_project/figures/figure_2_guad.pdf}
+\label{fig3} 
+\end{center}
+\end{figure}
+ 
+
+\begin{figure}[htbp]
+\begin{center}
+\caption{Ecart de prix  par famille de produits pour la Guyane}
+\includegraphics[scale=0.80]{c:/patrice/price_project/figures/figure_2_guy.pdf}
+\label{fig4} 
+\end{center}
+\end{figure}
+
+
+\begin{figure}[htbp]
+\begin{center}
+\caption{Ecart de prix par famille de produits pour la Réunion}
+\includegraphics[scale=0.80]{c:/patrice/price_project/figures/figure_2_reu.pdf}
+\label{fig5} 
+\end{center}
+\end{figure}
+ 
+\newpage
+
+\subsection{\textbf{\ Analyse en terme de clusters}}
+Un profil hétérogène des écarts de prix dans les régions étudiées est influencé probablement par les effets individuel ou temporel propre aux acteurs en présence (les ménages, les entreprises,...). Tel est un des arguments mis en exergue dans la section précédente. Sur un plan empirique, cela nous a donc conduit à étudier cette dynamique dans le cadre spécifique des clusters.
+Nous avons effectué des regroupements en classes homogènes d'un ensemble d'écart de prix par famille de produits et par régions.
+Les données se présentent sous la forme d'un tableau écart de prix-familles de produits. Ayant défini un critère de distance (dissemblance) nous avons procédé au regroupement des individus. Ce regroupement nécessite une stratégie de classification : critère de classification, choix du nombre optimal des clusters. Nous avons en premier lieu, calculé la matrice de corrélation par familles de produits et, en second lieu, nous avons établit une regroupement de l'écart d'IPC par famille de produits sur la base des clusters dynamique.
+
+\subsubsection{\textbf{\ Correlation statique et dynamique}}
+Les graphiques \ref{fig6} et  \ref{fig7},  présentent la matrice de corrélation simple des écarts d'IPC\footnote{Nous avons retenu l'indicateur d'écart suivant : $\hat{p}_{i,j,t}=p_{i,j,t}-p_{f,j,t}$, où $p_{i,j,t}$ est l'IPC de la région $i$ pour la famille de produit $j$, à la période $t$ et $p_{f,j,t}$ est l'IPC de la famille de produit $j$ pour la France Métropolitaine à la période $t$.} par familles de produits. Selon la méthode des clusters hiérarchiques\footnote{Cette méthode de regroupement définit la distance (degré de différences ou de similitudes)  entre deux groupes comme étant la distance maximale entre leurs composants individuels.}, nous n'avons permuté les lignes et le colonnes afin que les variables apparaissent par groupe selon le signe et l'intensité de leur corrélation\footnote{Les cases blanches sur les graphiques \ref{fig6} et \ref{fig7} correspondent à des corrélations non significatives.}. Bien que l'étude des déterminants de l'écart des prix soit renvoyée à la section suivante, les matrices de corrélation présentent plusieurs faits notables. 
+%\newpage
+En premier lieu, différents écarts de prix  sont positivement corrélés entre eux. Toutefois la paire de corrélation diffère d'une région à l'autre, ce qui reflète une disparité dans la dynamique de l'écart des prix par famille de produits. En second lieu, la corrélation négative entre certaines variables confirme une association bien connue prix et nature du bien.
+Il est intéressant de noter que les corrélations entre certaines les familles de produits sont assez faibles (couleur bleue pale). Alors que l'écart de prix TOT pour la Guadeloupe (voir le graphique \ref{fig6} (a) )  est clairement corrélés avec l'écart de prix pour les produits de base\footnote{L'explication des familles de produits est présentée en annexe} (AHT, APA, PME, STC, EHE, TOT, PS, PM, AMP, MHH), il l'est moins pour la Martinique, la Guyane et la Réunion. \\ Les corrélations négatives éliminent les effets-prix observés sur les autres familles de produits. Ces disparités observées refléteraient la structure de consommation imputable à chaque région.  En d'autres termes, la dynamique de l'écart de prix serait plutôt associée aux gains et pertes de revenus des ménages d'une région, qu'uniquement aux fluctuations du prix des produits de base. 
+
+%\begin{figure}[htbp]
+%\begin{center}
+%\caption{Matrice de corrélation pour la Guadeloupe (écart de prix, $\hat{p}_{gua,j,t}$)}
+%\includegraphics[scale=0.50]{c:/patrice/price_project/figures/figure_3_corr_Guad.png}
+%\label{fig6} 
+%\end{center}
+%\end{figure}
+
+
+%\begin{figure}[htbp]
+%\begin{center}
+%\caption{Matrice de corrélation pour la Martinique (écart de prix, $\hat{p}_{mar,j,t}$)}
+%\includegraphics[scale=0.50]{c:/patrice/price_project/figures/figure_3_corr_Mart.png}
+%\label{fig7} 
+%\end{center}
+%\end{figure}
+
+\begin{figure}[htbp]
+\caption{Corrélations}
+\label{fig6}
+\centering
+    \begin{subfigure}[htbp]{0.75\textwidth}
+ 	        \caption{Guadeloupe}
+					\includegraphics[width=\textwidth]{c:/patrice/price_project/figures/figure_3_corr_guad.pdf}
+					\label{fig8a}
+			   \end{subfigure}
+    \begin{subfigure}[htbp]{0.75\textwidth}
+		\caption{Martinique}
+		       \includegraphics[width=\textwidth]{c:/patrice/price_project/figures/figure_3_corr_mart.pdf}
+					 \label{fig8b}
+		 \end{subfigure}
+		 \hfill
+	\end{figure}		
+
+%\newpage
+
+\begin{figure}[htbp]
+\caption{Corrélations (suite)}
+\label{fig7}
+\centering
+	\begin{subfigure}[htbp]{0.75\textwidth}
+ 	        \caption{Réunion}
+					\includegraphics[width=\textwidth]{c:/patrice/price_project/figures/figure_3_corr_reu.pdf}
+					\label{fig9a}
+			   \end{subfigure}
+    \begin{subfigure}[htbp]{0.75\textwidth}
+		\caption{Guyane}
+		       \includegraphics[width=\textwidth]{c:/patrice/price_project/figures/figure_3_corr_guy.pdf}
+					 %\caption{Guyane}
+					\label{fig9b}
+		 \end{subfigure}
+		 \hfill
+		\end{figure}					
+				
+%\begin{figure}[htbp]%[!h]
+%\begin{center}
+%\caption{Matrice de corrélation pour la Réunion (écart de prix, $\hat{p}_{réu,j,t}$)}
+%\includegraphics[scale=0.50]{c:/patrice/price_project/figures/figure_3_corr_reu.png}
+%\label{fig8} 
+%\end{center}
+%\end{figure}
+
+%\begin{figure}[htbp]%[!h]
+%\begin{center}
+%\caption{Matrice de corrélation pour la Guyane (écart de prix, $\hat{p}_{guy,j,t}$)}
+%\includegraphics[scale=0.50]{c:/patrice/price_project/figures/figure_3_corr_guy.png}
+%\label{fig9} 
+%\end{center}
+%\end{figure}
+
+\newpage
+Ce constat est vérifié par l'analyse des corrélations glissantes\footnote{Nous avons retenu une fenêtre glissante de 10 mois.} (\textit{rolling-correlation}) qui montre que la valeur du coefficient de corrélation de l'écart est liées aux cycles conjoncturels des régions d'Outre-Mer (voir le graphique ). Comme le montre le graphique \ref{fig8}, la corrélation entre l'IPC total des régions d'Outremer et celui de la France Métropolitaine n'est pas restée stable tout au long de la période.  Dans l'ensemble, les coefficients ont globalement diminué après la crise de 2009. Cette dynamiques expliquerait par la mise en place du BQR en réponse à la crise sociale. 
+%\begin{figure}[htbp]%[!h]
+%\begin{center}
+%\caption{Correlation glissante}
+ %\includegraphics[scale=0.40]{c:/patrice/price_project/figures/figure_4_roll_corr.png}
+%\label{fig10} 
+%\end{center}
+%\end{figure}
+\bigskip
+
+\begin{figure}[htbp]
+\begin{center}
+\caption{Corrélation glissante}
+\includegraphics[scale=0.40]{c:/patrice/price_project/figures/figure_4_roll_corr.png}
+\label{fig8} 
+\end{center}
+\end{figure}
+
+\subsubsection{\textbf{\ Ecart de prix et clusters}}
+En complément à l'analyse précédemment exposée, nous avons réalisé une analyse en terme de clusters dynamiques pour  l'IPC par familles de produits. Cette méthode consiste à délimiter des groupes d'individus (ou typologie) à partir des caractéristiques de ces individus. En particulier, elles visent à distinguer des ensembles au sein desquels les individus se ressemblent plus qu'ils ne ressemblent aux individus des autres groupes.
+Les premiers enseignements de l'analyse est que la Guadeloupe et la Martinique ont des clusters identiques en nombre mais composés de familles de produits différents. En revanche, la Réunion et la Guyane disposent à la fois du même nombre de clusters et des mêmes familles de produits (cf. ) 
+\\  Composé des produits de première nécessité,  le premier cluster de la plupart des régions est caractérise par une augmentation tendancielle de l'écart des prix. En revanche, pour le second cluster,  l'écart des prix est orienté à la baisse en long période et les produits qui le compose seraient plutôt des paniers de \textcolor[rgb]{1,0,0}{ biens inférieurs} (quelque soit la région considérée). L'écart des prix pour le troisième cluster (pour la Guadeloupe et la Martinique) est resté relativement stable.
+La mise en évidence de ces résultats met en jeu des dynamique différenciée qui impose un effort d'explication des mécanismes en présence.
+
+%\begin{figure}[htbp]
+%\begin{center}
+%\caption{Cluster dynamique}
+%\includegraphics{c:/patrice/price_project/figures/figure_5_clust.pdf}
+%\label{fig11} 
+%\end{center}
+%\end{figure}
+
+\bigskip
+
+\begin{figure}[htbp]
+\caption{Les clusters}
+\label{fig9}
+\centering
+    \begin{subfigure}[htbp]{0.46\textwidth}
+		\caption{Guadeloupe}
+ 	        \includegraphics[width=\textwidth]{c:/patrice/price_project/figures/figure_5_clust_gua.pdf}
+					\label{fig9a}
+			   \end{subfigure}
+    \begin{subfigure}[htbp]{0.46\textwidth}
+		\caption{Martinique}
+		       \includegraphics[width=\textwidth]{c:/patrice/price_project/figures/figure_5_clust_mart.pdf}
+					 \label{fig9b}
+		 \end{subfigure}
+		 %\hfill
+	
+    \begin{subfigure}[htbp]{0.46\textwidth}
+		\caption{Réunion}
+ 	        \includegraphics[width=\textwidth]{c:/patrice/price_project/figures/figure_5_clust_reu.pdf}
+				\label{fig9a}
+			   \end{subfigure}
+    \begin{subfigure}[htbp]{0.46\textwidth}
+		\caption{Guyane}
+		 \includegraphics[width=\textwidth]{c:/patrice/price_project/figures/figure_5_clust_guy.pdf}
+			\label{fig9b}
+		 \end{subfigure}
+\end{figure}
+
+\section{Stratégie empririque}
+Les indicateurs d'écart de prix semblent clairement corrélés à des composantes nationales ou idiosyncratiques, cela suggère la nécessité d'une analyse économétrique rigoureuse afin d'identifier les différentes relations statistiques. L'objectif principal de notre étude est d'évaluer les déterminants de l'écart des prix dans les régions d'Outre-Mer. 
+
+L'approche empirique utilisée est la méthode de projection locale (\textit{PL}) de \cite{jorda2005estimation}. Plutôt que d'utiliser de manière récursive l'ensemble initial de coefficients estimés, cette approche permet d'estimer une séquence de régressions de la variable dépendante décalée de plusieurs périodes, cette approche ne contraint pas la forme des fonctions de réponses et devient donc moins sensible à un éventuelle biais de spécifications des modèles VAR standards (\cite{Auerbach}).
+ En conséquence, la spécification initiale est de la forme  : 
+\begin{eqnarray}
+\hat{p}_{i,t+k}-\hat{p}_{i,t-1}= \alpha_{i}+ \delta_{t}+ \phi_k \epsilon_{i,t-k},+\theta_{i,t}\epsilon_{f,t} \  \ \ \ \  \label{eq11}
+\end{eqnarray}
+
+\newpage
+
+
+ \begin{appendix}    
+%\appendix
+%\hspace{-8cm}
+\numberwithin{table}{section}
+
+\noindent \Huge \textbf{Annexes}
+
+\section{Les sources des données}
+\subsection{Listes des variables}
+\label{A1} 
+%\section{Les données}
+%\label{appendix1}
+\begin{table}[htbp]
+   \centering
+  \caption{Les familles de produits}
+	\label{tabA10}
+    \begin{tabular}{ll} 
+		\toprule[0.3mm]
+    \textbf{Variables} & \textbf{Intitulé} \\
+     \midrule
+	  ACT   & Alimentation y compris tabac \\
+    AHT   & Alimentation hors tabac \\
+    AMP   & Autres produits manufacturés \\
+    APA   & Autres produits alimentaires \\
+    ASE   & Autres services \\
+    E     & Energie \\
+    EHE   & Ensemble hors énergie \\
+    EHF   & Ensemble hors produits frais \\
+    EHT   & Ensemble hors tabac \\
+    HC    & Habillement et chaussure \\
+    LE    & Loyers et services rattachés \\
+    MHH   & Manufacturés hors habillement et chaussures \\
+    PF    & Produits frais \\
+    PM    & Produits manufacturés \\
+    PME   & Produits manufacturés y compris énergie \\
+    PP    & Produits pétroliers \\
+    PS    & Produits de santé \\
+    S     & Services \\
+    SS    & Services de santé \\
+    STC   & Services de transports et communications \\
+    T     & Tabac \\
+    TOT   & Ensemble \\
+   	\bottomrule[0.3mm]
+		\label{tab3}
+    \end{tabular}%
+  %\label{tab3}%
+\end{table}%
+
+\newpage
+\section{Listes des clusters}
+\label{A2}
+% Table generated by Excel2LaTeX from sheet 'cluster_guad'
+\begin{table}[htbp]
+  \centering
+  \caption{Les clusters pour la Guadeloupe}
+    \begin{tabular}{lrr}
+		\toprule[0.3mm]
+    Cluster 1 & \multicolumn{1}{l}{Cluster 2} & \multicolumn{1}{l}{Cluster 3} \\
+		 \midrule
+    AHT   & \multicolumn{1}{l}{ASE} & \multicolumn{1}{l}{EHE} \\
+    AMP   & \multicolumn{1}{l}{E}   & \multicolumn{1}{l}{LE} \\
+    APA   & \multicolumn{1}{l}{HC}  & \multicolumn{1}{l}{PME} \\
+    PF    & \multicolumn{1}{l}{MHH} & \multicolumn{1}{l}{STC} \\
+    PM    & \multicolumn{1}{l}{PP}  &  \\
+    PS    & \multicolumn{1}{l}{S}   &  \\
+	  SS    &       &  \\
+		\bottomrule[0.3mm]
+    \end{tabular}%
+  \label{tab4}%
+\end{table}%
+
+% Table generated by Excel2LaTeX from sheet 'cluster_mart'
+\begin{table}[htbp]
+  \centering
+  \caption{Les clusters pour la Martinique}
+    \begin{tabular}{lrr}
+		\toprule[0.3mm]
+    Cluster 1 & \multicolumn{1}{l}{Cluster 2} & \multicolumn{1}{l}{Cluster 3} \\
+		 \midrule
+    AHT   & \multicolumn{1}{l}{ASE} & \multicolumn{1}{l}{EHE} \\
+    AMP   & \multicolumn{1}{l}{E}   & \multicolumn{1}{l}{PF} \\
+    APA   & \multicolumn{1}{l}{HC}  &  \\
+    MHH   & \multicolumn{1}{l}{LE}  &  \\
+    PM    & \multicolumn{1}{l}{PP}  &  \\
+    PME   & \multicolumn{1}{l}{S}   &  \\
+    PS    &       &  \\
+    SS    &       &  \\
+    STC   &       &  \\
+		\bottomrule[0.3mm]
+    \end{tabular}%
+  \label{tab5}%
+\end{table}%
+
+\newpage
+
+% Table generated by Excel2LaTeX from sheet 'cluster_reu'
+% Table generated by Excel2LaTeX from sheet 'cluster_reu'
+\begin{table}[htbp]
+  \centering
+  \caption{Les clusters pour la Réunion}
+    \begin{tabular}{lr}
+		\toprule[0.3mm]
+    Cluster 1 & \multicolumn{1}{l}{Cluster 2} \\
+		\midrule
+    AHT   & \multicolumn{1}{l}{ASE} \\
+    AMP   & \multicolumn{1}{l}{E} \\
+    APA   & \multicolumn{1}{l}{HC} \\
+    EHE   & \multicolumn{1}{l}{PP}  \\
+    LE    & \multicolumn{1}{l}{S}    \\
+    MHH   & \multicolumn{1}{l}{SS}    \\
+    PF    &  \\
+    PM    &  \\
+    PME   &  \\
+    PS    &  \\
+    STC   &  \\
+		\bottomrule[0.3mm]
+    \end{tabular}%
+  \label{tab6}%
+\end{table}%
+
+
+
+
+
+% Table generated by Excel2LaTeX from sheet 'cluster_guy'
+\begin{table}[htbp]
+  \centering
+  \caption{Les clusters pour la Guyane}
+	   \begin{tabular}{rr}
+		\toprule[0.3mm]
+    \multicolumn{1}{l}{Cluster 1} & \multicolumn{1}{l}{Cluster 2} \\
+	  \midrule
+    \multicolumn{1}{l}{AHT} & \multicolumn{1}{l}{ASE} \\
+    \multicolumn{1}{l}{AMP} & \multicolumn{1}{l}{E} \\
+    \multicolumn{1}{l}{APA} & \multicolumn{1}{l}{HC} \\
+    \multicolumn{1}{l}{EHE} & \multicolumn{1}{l}{PP} \\
+    \multicolumn{1}{l}{LE}  & \multicolumn{1}{l}{S} \\
+    \multicolumn{1}{l}{MHH} & \multicolumn{1}{l}{SS} \\
+    \multicolumn{1}{l}{PF}  &  \\
+    \multicolumn{1}{l}{PM}  &  \\
+    \multicolumn{1}{l}{PME} &  \\
+    \multicolumn{1}{l}{PS}  &  \\
+    \multicolumn{1}{l}{STC} &  \\
+          &  \\
+		\bottomrule[0.3mm]
+    \end{tabular}%
+  \label{tab:addlabel}%
+\end{table}
+\end{appendix}
+
+\newpage
+
+\bibliographystyle{apalike} %unsrt
+\bibliography{PBZSMB_biblio}
+\nocite{*}
+%\end{doublespace}
+
+
+\end{document}
